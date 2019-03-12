@@ -1,6 +1,6 @@
 <?php
 
-namespace App;
+namespace App\Models;
 
 use Illuminate\Notifications\Notifiable; //Notifiable 是消息通知相关功能引用
 use Illuminate\Foundation\Auth\User as Authenticatable; //Authenticatable 是授权相关功能的引用
