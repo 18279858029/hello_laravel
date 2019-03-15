@@ -7,6 +7,8 @@ use Illuminate\Http\Request;
 use App\Http\Requests;
 
 use App\Models\User;
+
+use Auth;
 class UsersController extends Controller
 {
 	//注册页
@@ -31,7 +33,10 @@ class UsersController extends Controller
              'email' => $request->email,
              'password' => bcrypt($request->password)
     		]);
+    	//让认证通过的用户直接通过
+    	Auth::login($user);
     	session()->flash('success','欢迎，您将在这里开启一段新的旅程~');
     	return redirect()->route('users.show',[$user]);
     }
+
 }
