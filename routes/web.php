@@ -10,7 +10,7 @@
 | contains the "web" middleware group. Now create something great!
 |
 */
-
+//根目录
 Route::get('/', 'StaticPagesController@home')->name('home');
 //帮助页
 Route::get('/help', 'StaticPagesController@help')->name('help');
@@ -25,4 +25,6 @@ Route::get('login','SessionsController@create')->name('login');
 Route::post('login','SessionsController@store')->name('login');
 //退出
 Route::delete('logout','SessionsController@destory')->name('logout');
+//激活账户
+Route::get('signup/confirm/{token}','UsersController@confirmEmail')->name('confirm_email');
 
