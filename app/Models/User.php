@@ -4,7 +4,7 @@ namespace App\Models;
 
 use Illuminate\Notifications\Notifiable; //Notifiable 是消息通知相关功能引用
 use Illuminate\Foundation\Auth\User as Authenticatable; //Authenticatable 是授权相关功能的引用
-
+use App\Notifications\ResetPassword;
 class User extends Authenticatable
 {
     use Notifiable;
@@ -41,5 +41,10 @@ class User extends Authenticatable
         //加密
         $hash = md5(strtolower(trim($this->attributes['email'])));
         return "http://www.gravatar.com/avatar/$hash?s=$size";
+    }
+
+    public function sendPasswordResetNotification($token)
+    {
+        $this->notify(new ResetPassword($token));
     }
 }
