@@ -2,6 +2,8 @@
 /public/hot
 /public/storage
 /storage/*.key
+/public/css/
+/public/mix-manifest.json
 /vendor
 /.idea
 /.vagrant
